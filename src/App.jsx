@@ -4,8 +4,9 @@ import ClinicRoutes from './ClinicRoutes'
 function App() {
   return (
     <div>
-      <ClinicRoutes/>
+      <ClinicRoutes />
     </div>
+
   )
 }
 

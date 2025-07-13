@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ChevronLeft, ChevronRight, Plus, X, Edit2, Calendar, Trash2 } from 'lucide-react';
 import { patients, doctors } from '../../constant';
 import AppointmentModal from './modal/AppointmentModal';
 import CalendarView from '../../components/CalendarView';
 import Navbar from '../../components/Navbar';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const AppointmentCalendar = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -26,6 +27,7 @@ const AppointmentCalendar = () => {
         }, {});
         setAppointments(grouped);
     };
+
 
     useEffect(() => getAppointmentsData(), []);
     useEffect(() => {
@@ -145,7 +147,7 @@ const AppointmentCalendar = () => {
     return (
         <>
         <Navbar />
-        <div className="min-h-screen bg-gray-100 p-2 sm:p-4">
+        <div className="min-h-screen dark:bg-slate-400 bg-gray-100 p-2 sm:p-4">
             <div className="max-w-full sm:max-w-4xl md:max-w-5xl lg:max-w-7xl mx-auto">
                 {isMobile ? renderMobileCalendar() : renderDesktopCalendar()}
                 <AppointmentModal
